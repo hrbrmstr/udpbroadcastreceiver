@@ -1,6 +1,6 @@
 Package: udpbroadcastreceiver
 Type: Package
-Title: udpbroadcastreceiver Title Goes Here Otherwise CRAN Checks Fail
+Title: Receive and Log or Process UDP Broadcast Payloads
 Version: 0.1.0
 Date: 2022-04-30
 Authors@R: c(
@@ -8,17 +8,20 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
-URL: https://git.rud.is/hrbrmstr/udpbroadcastreceiver
-BugReports: https://git.rud.is/hrbrmstr/udpbroadcastreceiver/issues
+Description: Many remote sensors, such as weather stations, have the ability to broadcast
+    their record payloads over UDP. Tools are provided to listen for these broadcast packets
+    and either log them directly to a file or process them with callback functions.
+URL: https://github.com/hrbrmstr/udpbroadcastreceiver
+BugReports: https://github.com/hrbrmstr/udpbroadcastreceiver/issues
 Encoding: UTF-8
-License: AGPL
+License: MIT + file LICENSE
 Suggests:
     tinytest
 Depends:
-    R (>= 3.6.0)
+    R (>= 4.0.0)
 Imports:
-    httr2,
-    jsonlite
+    Rcpp
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+LinkingTo: 
+    Rcpp

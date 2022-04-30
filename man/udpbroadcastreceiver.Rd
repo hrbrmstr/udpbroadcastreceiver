@@ -4,15 +4,17 @@
 \name{udpbroadcastreceiver}
 \alias{udpbroadcastreceiver}
 \alias{udpbroadcastreceiver-package}
-\title{...}
+\title{Receive and Log or Process UDP Broadcast Payloads}
 \description{
-A good description goes here otherwise CRAN checks fail.
+Many remote sensors, such as weather stations, have the ability to broadcast
+their record payloads over UDP. Tools are provided to listen for these broadcast packets
+and either log them directly to a file or process them with callback functions.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://git.rud.is/hrbrmstr/udpbroadcastreceiver}
-  \item Report bugs at \url{https://git.rud.is/hrbrmstr/udpbroadcastreceiver/issues}
+  \item \url{https://github.com/hrbrmstr/udpbroadcastreceiver}
+  \item Report bugs at \url{https://github.com/hrbrmstr/udpbroadcastreceiver/issues}
 }
 
 }

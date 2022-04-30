@@ -1,47 +1,60 @@
----
-output: rmarkdown::github_document
-editor_options: 
-  chunk_output_type: console
----
-```{r pkg-knitr-opts, include=FALSE}
-hrbrpkghelpr::global_opts()
-```
 
-```{r badges, results='asis', echo=FALSE, cache=FALSE}
-hrbrpkghelpr::stinking_badges()
-```
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Signed
+by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/hrbrmstr)
+![Signed commit
+%](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
+[![R-CMD-check](https://github.com/hrbrmstr/udpbroadcastreceiver/workflows/R-CMD-check/badge.svg)](https://github.com/hrbrmstr/udpbroadcastreceiver/actions?query=workflow%3AR-CMD-check)
+[![Linux build
+Status](https://travis-ci.org/hrbrmstr/udpbroadcastreceiver.svg?branch=master)](https://travis-ci.org/hrbrmstr/udpbroadcastreceiver)
+[![Coverage
+Status](https://codecov.io/gh/hrbrmstr/udpbroadcastreceiver/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/udpbroadcastreceiver)
+![Minimal R
+Version](https://img.shields.io/badge/R%3E%3D-4.0.0-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-```{r description, results='asis', echo=FALSE, cache=FALSE}
-hrbrpkghelpr::yank_title_and_description()
-```
+# udpbroadcastreceiver
 
-## What's Inside The Tin
+Receive and Log or Process UDP Broadcast Payloads
+
+## Description
+
+Many remote sensors, such as weather stations, have the ability to
+broadcast their record payloads over UDP. Tools are provided to listen
+for these broadcast packets and either log them directly to a file or
+process them with callback functions.
+
+## What’s Inside The Tin
 
 The following functions are implemented:
 
-```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
-hrbrpkghelpr::describe_ingredients()
-```
+-   `udp_callback_logger`: Log UDP broadcast packets to a file
+-   `udp_file_logger`: Log UDP broadcast packets to a file
 
 ## Installation
 
-```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
-hrbrpkghelpr::install_block()
+``` r
+remotes::install_github("hrbrmstr/udpbroadcastreceiver")
 ```
+
+NOTE: To use the ‘remotes’ install options you will need to have the
+[{remotes} package](https://github.com/r-lib/remotes) installed.
 
 ## Usage
 
-```{r lib-ex}
+``` r
 library(udpbroadcastreceiver)
 
 # current version
 packageVersion("udpbroadcastreceiver")
-
+## [1] '0.1.0'
 ```
 
 ### File Logger
 
-```{r ex-01, eval=FALSE}
+``` r
 tf <- tempfile()
 udp_file_logger(50222, tf)
 # SIGINT/CTRL-C
@@ -57,7 +70,7 @@ unlink(tf)
 
 ### Callback Logger
 
-```{r ex-02, eval=FALSE}
+``` r
 # We will stop after 5 records are read so we need to keep a counter
 n <- 1
 
@@ -88,11 +101,18 @@ records
 
 ## udpbroadcastreceiver Metrics
 
-```{r cloc, echo=FALSE}
-cloc::cloc_pkg_md()
-```
+| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+|:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
+| C++  |        2 | 0.11 | 111 | 0.28 |          49 | 0.26 |        7 | 0.03 |
+| YAML |        2 | 0.11 |  35 | 0.09 |          10 | 0.05 |        2 | 0.01 |
+| R    |        4 | 0.22 |  32 | 0.08 |          14 | 0.07 |       49 | 0.22 |
+| Rmd  |        1 | 0.06 |  22 | 0.06 |          23 | 0.12 |       53 | 0.24 |
+| SUM  |        9 | 0.50 | 200 | 0.50 |          96 | 0.50 |      111 | 0.50 |
+
+clock Package Metrics for udpbroadcastreceiver
 
 ## Code of Conduct
 
-Please note that this project is released with a Contributor Code of Conduct. 
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a Contributor Code of
+Conduct. By participating in this project you agree to abide by its
+terms.
